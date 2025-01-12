@@ -31,7 +31,7 @@ nav {
     display: contents;
 }
 
-nav div {
+nav div{
 
     margin-left: 5%;
     font-family: "Lexend Deca", serif;
@@ -70,6 +70,7 @@ body {
     color: #ECECEC;
 }
 
+/* Bouton DarkMode */
 input{
     position: absolute;
 
@@ -81,6 +82,7 @@ input{
     border-radius: 5px;
     padding: 1rem;
 
+    font-family: "Lexend Deca", serif;
 
 }
 
