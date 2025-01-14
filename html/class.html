@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>SimpleClass - Accueil</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+
+    <link rel="stylesheet" href="../css/styles.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display&family=Lexend+Deca:wght@100..900&display=swap"
+        rel="stylesheet">
+
+    <script src="../js/script.js"></script>
+
+    <nav class="barnav">
+        <span>
+            <a href="index.html">Accueil</a>
+        </span>
+
+
+        <span>
+            <a href="class.html">Commencer</a>
+        </span>
+
+
+        <span>
+            <a href="about.html">A propos de nous</a>
+        </span>
+    </nav>
+</head>
+
+<body>
+    <nav id="Accueil">
+
+        <div onclick="agencement()" >
+            Classe
+        </div>
+
+
+        <div onclick="liste()">
+            Élève
+        </div>
+
+
+        <div onclick="plan()">
+            Plan
+        </div>
+
+        <input type="button" id="toggleButton" value="Thème sombre" onclick="togglemode()">
+
+    </nav>
+
+    <div id="classe">
+        
+        <input id="rangex" type="range" min="0" max="100" oninput="tableau_x.value=rangex.value ; updatetableau();" />
+        <input id="tableau_x" type="number" value="100" min="0" max="100" oninput="rangex.value=tableau_x.value ; updatetableau();" />
+
+        <input id="rangey" type="range" min="0" max="100" oninput="tableau_y.value=rangey.value ; updatetableau();" />
+        <input id="tableau_y" type="number" value="100" min="0" max="100" oninput="rangey.value=tableau_y.value ; updatetableau();" />
+
+        <table id="tableau_classe">
+
+
+        </table>
+        
+    </div>
+
+    <div id="eleve">
+        <input id="champ" type="text" placeholder="Prenom">
+        <input id="ajouter" type="button" value="Ajouter +" onclick="createchamp()">
+        <p>Test Eleve</p>
+
+    </div>
+
+    <div id="plan">
+
+        <p>Test plan</p>
+        
+    </div>
+
+    
+</body>
+
+</html>

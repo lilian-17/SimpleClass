@@ -1,5 +1,5 @@
 # SimpleClass
- Projet WEB ESGI
+## Projet WEB ESGI
 
 SimpleClass
 Générer un plan de classe facilement
@@ -10,7 +10,7 @@ Gérer la disposition des tables
 --> Templates sous forme de tableau puis possible de glisser les tables ou de les supprimer avec un clic droit.
 
 Ajout des prénoms des élèves
---> possibilité d'importation par pdf / txt ...
+--> possibilité d'importation par pdf / txt ... (*S2*)
 
 Répartition automatique des élèves sur les tables au hasard 
 
