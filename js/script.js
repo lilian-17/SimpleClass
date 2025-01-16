@@ -19,98 +19,121 @@ function togglemode() {
 
 }
 
-window.onload = function() {
+window.onload = function () {
   var savedTheme = localStorage.getItem("theme");
   var body = document.body;
   var button = document.getElementById("toggleButton");
 
   if (savedTheme === "dark-mode") {
-      body.classList.add("dark-mode");
-      button.value = "Thème sombre";
+    body.classList.add("dark-mode");
+    button.value = "Thème sombre";
   } else {
-      body.classList.remove("dark-mode");
-      button.value = "Thème clair";
+    body.classList.remove("dark-mode");
+    button.value = "Thème clair";
   }
 };
 
-function agencement(){
+function agencement() {
 
   console.log('Agencement')
 
   document.getElementById('classe').style.display = "block"
   document.getElementById('eleve').style.display = "none"
   document.getElementById('plan').style.display = "none"
-  
+
 }
 
-function liste(){
-/*Creation de la liste d'eleves */
+function liste() {
   console.log('Liste')
-  
+
   document.getElementById('classe').style.display = "none";
   document.getElementById('eleve').style.display = "block";
   document.getElementById('plan').style.display = "none";
-  
+
 }
 
-function createchamp(){
+
+/*Creation de la liste d'eleves */
+function createchamp() {
 
   var champ = document.getElementById("champ");
 
-  if (champ.value !== ""){
-    var pointeur = document.getElementById("eleve");
-    var input = document.createElement("input");
-
-    input.type = "text";
-    input.placeholder = "Prenom";
-    input.id = "champ";
-
-    console.log(input);
-    pointeur.appendChild(input);
+  for (var i = 0; i < champ.length; i++) {
+    console.log(champ[i])
   }
 
-  
-}
+  console.log("Test")
+  console.log(champ)
 
-/*
-function ajoutliste(){
-  var eleve = [];
-  var x = document.getElementById('champ').value;
+  var pointeur = document.getElementById("eleve");
+  var input = document.createElement("input");
 
-  
-  console.log(x);
-  eleve.push(x);
-  console.log(eleve);
-}
-  */
+  input.type = "text";
+  input.placeholder = "Prenom";
+  input.id = "champ";
 
-function plan(){
-  
-console.log('Plan')
-
-document.getElementById('classe').style.display = "none";
-document.getElementById('eleve').style.display = "none";
-document.getElementById('plan').style.display = "block";
+  console.log(input);
+  pointeur.appendChild(input);
 
 }
 
-function updatetableau(){
+function champignon() {
+  const inputs = document.querySelectorAll('input'); // Récupère tous les champs
+  let allFilled = true; // Suppose que tout est rempli
 
-  var nmb_ligne = document.getElementById('tableau_x').value;
-  var nmb_colonne = document.getElementById('tableau_y').value;
+  // Vérifie chaque champ
+  for (let input of inputs) {
+    if (input.value.trim() === "") { // Si un champ est vide
+      allFilled = false;
+      break; // Pas besoin de vérifier les autres champs
+    }
+  }
+
+  // Affiche le résultat
+  if (allFilled) {
+    createchamp();
+  } else {
+    alert("Veuillez remplir tous les champs.");
+  }
+}
+
+
+
+function plan() {
+
+  console.log('Plan')
+
+  document.getElementById('classe').style.display = "none";
+  document.getElementById('eleve').style.display = "none";
+  document.getElementById('plan').style.display = "block";
+
+}
+
+function updatetableau() {
+
+  var nmb_ligne = parseInt(document.getElementById('tableau_x').value);
+  var nmb_colonne = parseInt(document.getElementById('tableau_y').value);
 
   console.log(nmb_ligne)
   console.log(nmb_colonne)
 
+
+
   var tableau = document.getElementById('tableau_classe');
-  var ligne = document.createElement("tr");
-  var colonne = document.createElement("td");
 
-  ligne = [""]
-  tableau.appendChild(ligne);
+  tableau.innerHTML = ''
 
-  
 
+
+  for (var i = 0; i < nmb_ligne; i++) {
+    var ligne = document.createElement("tr");
+    for (var j = 0; j < nmb_colonne; j++) {
+      var colonne = document.createElement("td");
+      colonne.textContent = '';
+      ligne.appendChild(colonne);
+    }
+    tableau.appendChild(ligne);
+  }
 }
-  
-  
+
+

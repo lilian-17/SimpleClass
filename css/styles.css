@@ -26,6 +26,44 @@
 
 /* Navigation */
 
+.barnav{
+    position: absolute;
+    white-space:nowrap;
+    width: 100%;
+    top :2%;
+    text-align: center;
+
+    font-family: "Lexend Deca", serif;
+    margin-top: 2%;
+
+}
+
+body{
+    overflow: hidden;
+}
+.barnav span a:not(#actual_page){
+    border-radius: 10px;
+    padding: 0.5em;  
+    font-size: 1rem;
+
+    
+}
+
+.barnav span #actual_page{
+    color: lightcoral;
+}
+
+.barnav span a:hover:not(#actual_page){
+    background-color: white;
+    color: #0D0D0D;
+}
+
+.barnav span~span {
+    margin-left: 10%;
+
+}
+
+
 #Accueil div {
 
     
@@ -64,7 +102,6 @@ body {
 .dark-mode {
     background-color: #212121;
     color: #ECECEC;
-
 
 }
 
@@ -106,21 +143,7 @@ a {
 
 /* Barre de Navigation */
 
-.barnav span~span {
-    margin-left: 10%;
 
-}
-
-.barnav {
-    font-family: "Lexend Deca", serif;
-    margin-left: 6%;
-    margin-top: 2%;
-}
-
-.barnav span {
-
-    font-size: 1rem;
-}
 
 #classe,
 #eleve,
@@ -134,34 +157,82 @@ a {
     width: 70%;
     height: 75%;
 
+    text-align: center;
 
-
-    background-color: red;
-}
-
-/* Bouton Eleve */
-#ajouter {
-
-    font-family: "Lexend Deca", serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-
-
-    z-index: auto;
-
-    border-style: solid;
-    border-radius: 2em;
     
 
+}
+::-webkit-scrollbar {
+    display: none;
+}
+/* Bouton Eleve */
+#ajouter {
+    position: fixed;
+    left: 10%;
+    margin: 1em 20em;
+    
+    font-family: "Lexend Deca", serif;
+    border-radius: 100em;
+    border-style: solid;
+    text-align: center;
+    
+    background-color: white;
+    width: 10%;
+    height: auto;
+    padding: 1.25em;
 
-    height: 2em;
 }
 
 #champ {
     font-family: "Lexend Deca", serif;
     border-radius: 100em;
-    margin: 3%;
     border-style: solid;
     text-align: center;
     font-style: italic;
+    padding: 2%;
+    background-color: white;
+    width: 20%;
+    margin: 1em 20em;
+}
+
+#classe{
+    overflow:scroll
+}
+
+tr, td{
+    border-radius: 10px;
+    border: 2px solid white;
+    padding: 1em 1.5em ;
+    background-color: #212121;
+    
+
+}
+
+#rangex, #rangey{
+    margin: 0 0 0 3em;
+}
+
+#tableau_x, #tableau_y{
+    font-family: "Lexend Deca", serif;
+    border-style: solid;
+    text-align: center;
+
+    font-size: 1em;
+
+    margin: 0 2em;
+    color: white;
+    background-color: #212121;
+    border: 0;
+    border-radius: 5px;
+    
+}
+
+table{
+    margin-left: 12.5%;
+    margin-top: 2%;
+    border-spacing: 1em;
+}
+
+#eleve{
+    overflow:scroll
 }

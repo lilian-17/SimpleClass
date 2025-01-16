@@ -20,17 +20,22 @@
 
     <nav class="barnav">
         <span>
+            <b style="font-weight: 500;">SimpleClass</b>
+        </span>
+        <span>
             <a href="index.html">Accueil</a>
         </span>
 
-
         <span>
-            <a href="class.html">Commencer</a>
+            <a href="class.html" id="actual_page">Commencer</a>
         </span>
-
 
         <span>
             <a href="about.html">A propos de nous</a>
+        </span>
+
+        <span>
+            <a href="account.html">Mon compte</a>
         </span>
     </nav>
 </head>
@@ -58,11 +63,11 @@
 
     <div id="classe">
         
-        <input id="rangex" type="range" min="0" max="100" oninput="tableau_x.value=rangex.value ; updatetableau();" />
-        <input id="tableau_x" type="number" value="100" min="0" max="100" oninput="rangex.value=tableau_x.value ; updatetableau();" />
+        <input id="rangex" type="range" min="0" max="10" oninput="tableau_x.value=rangex.value ; updatetableau();" />
+        <input id="tableau_x" type="number" value="10" min="0" max="100" oninput="rangex.value=tableau_x.value ; updatetableau();" />
 
-        <input id="rangey" type="range" min="0" max="100" oninput="tableau_y.value=rangey.value ; updatetableau();" />
-        <input id="tableau_y" type="number" value="100" min="0" max="100" oninput="rangey.value=tableau_y.value ; updatetableau();" />
+        <input id="rangey" type="range" min="0" max="10" oninput="tableau_y.value=rangey.value ; updatetableau();" />
+        <input id="tableau_y" type="number" value="10" min="0" max="100" oninput="rangey.value=tableau_y.value ; updatetableau();" />
 
         <table id="tableau_classe">
 
@@ -72,9 +77,9 @@
     </div>
 
     <div id="eleve">
+        <input id="ajouter" type="button" value="Ajouter" onclick="champignon()">
         <input id="champ" type="text" placeholder="Prenom">
-        <input id="ajouter" type="button" value="Ajouter +" onclick="createchamp()">
-        <p>Test Eleve</p>
+        
 
     </div>
 
