@@ -236,3 +236,26 @@ table{
 #eleve{
     overflow:scroll
 }
+
+/*CSS about.html*/
+#presentation {
+    font-family: "Lexend Deca", serif;
+}
+
+#title-about {
+    text-align: center;
+    margin-top: 8%;
+}
+
+.lilian {
+    margin-right: 30%;
+    float:inline-start;
+
+
+}
+
+.ethan {
+    margin-left: 30%;
+    margin-top:4%;
+
+}
