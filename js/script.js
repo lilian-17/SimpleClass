@@ -77,7 +77,7 @@ function createchamp() {
 
 }
 
-function champignon() {
+function checkchamp() {
   const inputs = document.querySelectorAll('input'); // Récupère tous les champs
   let allFilled = true; // Suppose que tout est rempli
 
@@ -96,6 +96,8 @@ function champignon() {
     alert("Veuillez remplir tous les champs.");
   }
 }
+
+//Mainteant il faudrait faire en sorte de les ajoutés a une liste peut être pour qu'on puisse les récupérer
 
 
 
