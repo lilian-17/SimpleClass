@@ -1,4 +1,4 @@
-# SimpleClass
+# SimpleClass https://lilian-17.github.io/SimpleClass/html/index.html
 ## Projet WEB ESGI
 
 SimpleClass
