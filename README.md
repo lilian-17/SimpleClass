@@ -13,7 +13,6 @@ Export en PDF, PNG, JPG, etc.
 * `Gestion des Élèves :` Ajoutez et gérez facilement les informations des élèves.
 * `Thème Sombre/Clair :` Personnalisez l'apparence avec un thème sombre ou clair.
 * `Navigation Intuitive :` Une interface utilisateur simple et facile à utiliser.
-
 ## 🏗️ Structure du Projet
 
 Le projet est organisé comme suit :
@@ -25,6 +24,11 @@ Le projet est organisé comme suit :
 * `css/styles.css` : Fichiers de style CSS pour l'application.
 * `js/script.js` : Fichiers JavaScript pour la logique de l'application.
 
+## 🚀 Technologies utilisées
+* HTML5 pour la structure
+* CSS3 pour le style (styles.css)
+* JavaScript pour l'interactivité (script.js)
+  
 ## ⚙️ Utilisation
 
 * **Page de Chargement (`index.html`) :** Une animation de chargement est affichée avant de rediriger vers la page d'accueil.
