@@ -75,6 +75,8 @@ function createchamp() {
   console.log(input);
   pointeur.appendChild(input);
 
+
+
 }
 
 function checkchamp() {
@@ -113,29 +115,43 @@ function plan() {
 
 function updatetableau() {
 
+  let classe = document.getElementById('classe');
+
+  let existingTable = document.querySelector("table");
+    if (existingTable) {
+        existingTable.remove();
+    }
+  
+  var tbl = document.createElement('table');
+
   var nmb_ligne = parseInt(document.getElementById('tableau_x').value);
   var nmb_colonne = parseInt(document.getElementById('tableau_y').value);
 
-  console.log(nmb_ligne)
-  console.log(nmb_colonne)
-
-
-
-  var tableau = document.getElementById('tableau_classe');
-
-  tableau.innerHTML = ''
-
-
-
   for (var i = 0; i < nmb_ligne; i++) {
-    var ligne = document.createElement("tr");
+
+    var tr = tbl.insertRow();
+
     for (var j = 0; j < nmb_colonne; j++) {
-      var colonne = document.createElement("td");
-      colonne.textContent = '';
-      ligne.appendChild(colonne);
+
+      let td = tr.insertCell();
+      td.setAttribute("data-x", j);
+      td.setAttribute("data-y", i);
+      td.setAttribute("value",'')
+
     }
-    tableau.appendChild(ligne);
+
   }
+
+  classe.appendChild(tbl);
+
+  let td_ele = document.querySelectorAll("td");
+  td_ele.forEach(td => {
+    td.addEventListener('click', e => {
+      
+      td.setAttribute("value",'none')
+      td.innerHTML = 'none'
+      e.preventDefault();
+    });
+  });
+
 }
-
-
