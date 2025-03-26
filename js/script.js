@@ -146,11 +146,19 @@ function updatetableau() {
 
   let td_ele = document.querySelectorAll("td");
   td_ele.forEach(td => {
-    td.addEventListener('click', e => {
+    td.addEventListener('click', () => {
       
-      td.setAttribute("value",'none')
-      td.innerHTML = 'none'
-      e.preventDefault();
+      console.log(td.getAttribute("value"))
+      if (td.getAttribute("value") == '#null'){
+        td.setAttribute("value",'')
+      }
+      else{
+        td.setAttribute("value",'#null')
+      }
+      
+      
+      
+
     });
   });
 

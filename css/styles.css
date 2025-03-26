@@ -24,6 +24,11 @@
 
 }
 
+#rangex, #tableau_x, #rangey, #tableau_y {
+    transform: translateY(2em);
+    background-color: rgb(131, 82, 82);
+}
+
 /* Navigation */
 
 .barnav{
@@ -159,12 +164,15 @@ a {
 
     text-align: center;
 
+    border: 2px solid white;
+
     
 
 }
 ::-webkit-scrollbar {
     display: none;
 }
+
 /* Bouton Eleve */
 #ajouter {
     position: fixed;
@@ -201,9 +209,11 @@ a {
 
 tr, td{
     border-radius: 10px;
-    border: 2px solid white;
+    border: 2px solid #DCA06D;
     padding: 1em 1.5em ;
-    background-color: #212121;
+    background-color: #A55B4B;
+
+    opacity: 30%;
     
 
 }
@@ -245,17 +255,53 @@ table{
 #title-about {
     text-align: center;
     margin-top: 8%;
+
+    display: inline-flex;
+    flex-wrap: nowrap;
+}
+.carte{
+    width: 20%;
+    background-color: grey;
+    height: 35%;
+    padding: 0.5%;
+    border-radius: 1em;
+}
+.carte img{
+    padding-top:2%;
+    padding-left:2%;
+    aspect-ratio: 1;
+    height: 10vh;
 }
 
-.lilian {
-    margin-right: 30%;
-    float:inline-start;
+.box {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2em;
+  }
+  
+  .box :first-child {
+    align-self: center;
+  }
 
+  #carte_lilian{
+    margin-left: 20%;
+  }
 
-}
+  #carte_ethan{
+    margin-right: 20%;
+  }
 
-.ethan {
-    margin-left: 30%;
-    margin-top:4%;
+  #lilian_name{
+    color:red;
+    margin-left:75%;
+    padding-bottom: 75%;
+    font-size: 150%;
+    height:10vh;
+  }
 
-}
+td[value="#null"] {
+    border-color: black;
+    background-color: #212121;
+    opacity:initial;
+  }
