@@ -8,46 +8,22 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
 
-    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="../main.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Funnel+Display&family=Lexend+Deca:wght@100..900&display=swap"
         rel="stylesheet">
 
-    <script src="./main.js"></script>
+    <script src="../main.js"></script>
 
 </head>
 
 <body>
 
-    <header>
-    </header>
-
-    <nav>
-
-        <div>
-            <b>SimpleClass</b>
-        </div>
-
-
-        <div>
-            <a href="index.html">Accueil</a>
-        </div>
-
-        <div>
-            <a href="main.html">Commencer</a>
-        </div>
-
-
-        <div>
-            <p class="highlight">A propos de nous</p>
-        </div>
-
-        <div>
-            <input type="button" id="toggleButton" value="Thème sombre" onclick="togglemode()">
-        </div>
-    </nav>
+    <?php
+    include '../elements/nav.php';
+    ?>
 
     <div class="content">
 
@@ -71,14 +47,14 @@
 
         <p class="situation">Etudiant à l'<a href="https://www.esgi.fr/" class="highlight" target="_blank">ESGI</a> en
             première année</p>
-        <p class="quote">J'ai rienf fais mai c mon idée a la base 🥸🥸</p>
+        <p class="quote">"Rien de plus satisfaisant que de voir un projet passer de l’idée à une application
+            fonctionnelle."</p>
 
     </div>
 
-    <footer>
-        <span><b>SimpleClass</b> © Tout droit réservés <span class="highlight">Ethan Ménoury & Lilian
-                Martineau</span></span>
-    </footer>
+    <?php
+    include '../elements/footer.php';
+    ?>
 
 </body>
 

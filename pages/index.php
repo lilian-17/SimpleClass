@@ -8,14 +8,14 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
 
-    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="../main.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Funnel+Display&family=Lexend+Deca:wght@100..900&display=swap"
         rel="stylesheet">
 
-    <script src="./main.js"></script>
+    <script src="../main.js"></script>
 
 </head>
 
@@ -24,30 +24,9 @@
     <header>
     </header>
 
-    <nav>
-
-        <div>
-            <b>SimpleClass</b>
-        </div>
-
-
-        <div>
-            <p  class="highlight">Accueil</p>
-        </div>
-
-        <div>
-            <a href="main.html">Commencer</a>
-        </div>
-
-
-        <div>
-            <a href="about.html">A propos de nous</a>
-        </div>
-
-        <div>
-            <input type="button" id="toggleButton" value="Thème sombre" onclick="togglemode()">
-        </div>
-    </nav>
+    <?php
+    include "../elements/nav.php";
+    ?>
 
     <div class="content">
 
@@ -74,9 +53,9 @@
         </ol>
     </div>
 
-    <footer>
-        <span><b>SimpleClass</b> © Tout droit réservés <span class="highlight"><a href="https://github.com/emnry">Ethan Ménoury</a> & <a href="https://github.com/lilian-17">Lilian Martineau</a></span></span>
-    </footer>
+    <?php
+    include '../elements/footer.php';
+    ?>
 
 </body>
 
