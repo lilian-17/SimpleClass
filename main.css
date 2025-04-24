@@ -57,6 +57,7 @@ nav {
 
 .content {
     grid-area: middle_content;
+    height: 100%;
 }
 
 footer {
