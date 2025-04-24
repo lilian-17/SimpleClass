@@ -98,6 +98,21 @@ function updatetableau() {
   tbl.setAttribute("id",'classPlan')
   classe.appendChild(tbl);
 
+  // Sauvegarde dans l'input 
+
+  const array = [];
+
+  const rows = tbl.rows;
+  for (let i = 0; i<row.length;i++){
+    const row = [];
+    const cells = rows[i].cells;
+    for(let j = 0;j<cells.length;j++){
+      row.push(cells[j].innerText);
+    }
+    array.push(row);
+  }
+
+
   let td_ele = document.querySelectorAll("td");
   td_ele.forEach(td => {
     td.addEventListener('click', () => {
@@ -110,11 +125,12 @@ function updatetableau() {
         td.setAttribute("value",'#null')
       }
       
-      
-      
-
     });
   });
+
+  tableExport = document.getElementById(tableExport);
+  tableExport.value = array;
+  console.log(array);
 
 }
 
