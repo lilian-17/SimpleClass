@@ -20,6 +20,9 @@
 </head>
 
 <body>
+    <?php
+    include '../elements/connexion.php';
+    ?>
 
     <?php
     include '../elements/nav.php';

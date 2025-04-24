@@ -8,6 +8,8 @@ echo
 <div id="eleve">
     <input id="ajouter" type="button" value="Ajouter" onclick="checkchamp()">
     <input id="champ" type="text" placeholder="Prenom">
+
+    <input id="submit" type="submit" value="Envoyer" >
 </div>
 '
 ?>

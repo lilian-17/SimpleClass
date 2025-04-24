@@ -172,11 +172,10 @@ function createchamp() {
   input.type = "text";
   input.placeholder = "Prenom";
   input.id = "champ";
+  input.name = "name_student";
 
   console.log(input);
   pointeur.appendChild(input);
-
-
 
 }
 
