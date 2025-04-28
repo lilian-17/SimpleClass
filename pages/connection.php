@@ -1,3 +1,7 @@
+<?php
+header("Cache-Control: no-cache, must-revalidate");
+header("Expires: 0");
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -30,7 +34,7 @@
         <div class="mainTitleContainer">
 
             <div onclick="window.location.replace('connection.php?page=login');">
-                Connection
+                Connexion
             </div>
 
             <div onclick="window.location.replace('connection.php?page=register');">
@@ -50,7 +54,6 @@
         } else {
             header("Location: connection.php?page=login");
         }
-
         ?>
 
     </div>

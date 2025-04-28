@@ -180,24 +180,42 @@ function createchamp() {
 
 }
 
-function checkchamp() {
-  const inputs = document.querySelectorAll('input'); // Récupère tous les champs
-  let allFilled = true; // Suppose que tout est rempli
+let compteur = 0; // Compteur pour différencier les élèves
+//Creation de la liste d'eleves/
+function createchamp() {
 
-  // Vérifie chaque champ
-  for (let input of inputs) {
-    if (input.value.trim() === "") { // Si un champ est vide
-      allFilled = false;
-      break; // Pas besoin de vérifier les autres champs
-    }
+  var champ = document.getElementById("champ");
+
+  for (var i = 0; i < champ.length; i++) {
+    console.log(champ[i])
   }
 
-  // Affiche le résultat
-  if (allFilled) {
-    createchamp();
-  } else {
-    alert("Veuillez remplir tous les champs.");
-  }
+  console.log("Test")
+  console.log(champ)
+
+  var pointeur = document.getElementById("eleve");
+  var ligne = document.createElement("tr");
+  var colonne_prenom = document.createElement("td");
+  var colonne_nom = document.createElement("td");
+  var input_prenom = document.createElement("input");
+  var input_nom = document.createElement("input");
+
+  input_prenom.type = "text";
+  input_prenom.placeholder = "Prenom";
+  input_prenom.id = "champ";
+  input_prenom.name = eleves[$compteur][prenom]; // array de PHP
+
+  input_nom.type = "text";
+  input_nom.placeholder = "Nom";
+  input_nom.id = "champ";
+  input_nom.name = eleves[$compteur][nom];
+
+  ligne.appendChild(colonne_prenom);
+  ligne.appendChild(colonne_nom);
+  colonne_prenom.appendChild(input_prenom);
+  colonne_nom.appendChild(input_nom);
+  pointeur.appendChild(ligne);
+
 }
 
 //Mainteant il faudrait faire en sorte de les ajoutés a une liste peut être pour qu'on puisse les récupérer
@@ -263,3 +281,5 @@ function updatetableau() {
   });
 
 }
+
+

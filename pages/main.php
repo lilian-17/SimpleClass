@@ -31,17 +31,17 @@
 
             <h1 id="mainTitle">Commencer</h1>
 
-            <div onclick="window.location.replace('main.php?page=room');">
+            <div onclick="updatePage('class');">
                 Classe
             </div>
 
 
-            <div onclick="window.location.replace('main.php?page=students');">
+            <div onclick="updatePage('students');">
                 Élève
             </div>
 
 
-            <div onclick="window.location.replace('main.php?page=generate');">
+            <div onclick="updatePage('generate');">
                 Plan
             </div>
 
@@ -49,13 +49,20 @@
 
         <?php
 
-        if (isset($_GET['page'])) {
-            $page = $_GET['page'];
 
-            include '../elements/' . $page . '.php';
-        } else {
-            header("Location: main.php?page=room");
+        if (isset($_GET['id'])) {
+            if (isset($_GET['page'])) {
+                $page = $_GET['page'];
+                include '../elements/' . $page . '.php';
+            } else {
+                header("Location: main.php?page=room&id=".$_GET['id']);
+            }
         }
+        else{
+            header("Location: connection.php");
+        }
+
+        
 
         ?>
 
@@ -64,6 +71,14 @@
     <?php
     include '../elements/footer.php';
     ?>
+
+    <script>
+        function updatePage(pageValue) {
+            const url = new URL(window.location.href);
+            url.searchParams.set('page', pageValue); // Change seulement "page"
+            window.location.replace(url.toString()); // Recharge avec la nouvelle URL
+        }
+    </script>
 
 </body>
 
