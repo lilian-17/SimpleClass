@@ -58,7 +58,11 @@
     <?php
     include '../elements/footer.php';
     ?>
-
+<!-- teste linux -->
+ <p> gros caca qui pue </p>
+ <div>
+    transliterator_get_error_message
+</div>
 </body>
 
 </html>
