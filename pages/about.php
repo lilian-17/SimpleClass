@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: connection.php?page=login");
+    exit();
+}
+?>
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -20,6 +30,9 @@
 </head>
 
 <body>
+    <?php
+    include '../elements/connexion.php';
+    ?>
 
     <?php
     include '../elements/nav.php';
@@ -55,7 +68,11 @@
     <?php
     include '../elements/footer.php';
     ?>
-
+<!-- teste linux -->
+ <p> gros caca qui pue </p>
+ <div>
+    transliterator_get_error_message
+</div>
 </body>
 
 </html>

@@ -1,10 +1,18 @@
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: connection.php');
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>SimpleClass - Accueil</title>
+    <title>SimpleClass - Accueil</title> 
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
 
@@ -56,6 +64,7 @@
     <?php
     include '../elements/footer.php';
     ?>
+    
 
 </body>
 
