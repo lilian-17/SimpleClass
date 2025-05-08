@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: connection.php?page=login");
+    exit();
+}
+?>
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 

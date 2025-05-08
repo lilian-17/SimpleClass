@@ -1,42 +1,38 @@
 <?php
 
-if(isset($_POST['loginUsername'])){
+if (isset($_SESSION['user_id'])) {
+    header('Location: main.php');
+    exit();
+}
 
+if (isset($_POST['loginUsername'])) {
     $username = $_POST['loginUsername'];
     $email = $_POST['loginEmail'];
     $password = $_POST['loginPSWD'];
-    
-    
-    
+
     include 'db.php';
 
-    $sql = "SELECT Id_Utilisateur FROM utilisateurs WHERE email=:email AND username=:username AND mdp=:password";
+    $sql = "SELECT Id_Utilisateur, mdp FROM utilisateurs WHERE email = :email AND username = :username";
     $stmt = $conn->prepare($sql);
     $stmt->execute([
         'email' => $email,
-        'username' => $username,
-        'password' => $password
+        'username' => $username
     ]);
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    if ($user && password_verify($password, $user['mdp'])) {
+        $_SESSION['user_id'] = $user['Id_Utilisateur'];
+        $_SESSION['username'] = $username;
 
-    if ($user) {
-        // L'utilisateur existe, redirection
-        header('Location: main.php?id=' . $user['Id_Utilisateur']);
+        header('Location: main.php');
         exit();
     } else {
-        // L'utilisateur n'existe pas, afficher une alerte
-        ?>
-        <script language="javascript">
-            alert('Identifiants incorrects !');
-        </script>
-        
-        <?php
-        exit();
+        echo "<script>alert('Identifiants incorrects !');</script>";
     }
-    }
-    echo"
+}
+?>
+
         <h1>Se connecter</h1>
 
         <form id='formBloc' action='' method='POST'>
@@ -52,5 +48,3 @@ if(isset($_POST['loginUsername'])){
             <input id='loginSubmit' type='submit'>
 
         </form>
-"
-?>

@@ -1,7 +1,12 @@
 <?php
-header("Cache-Control: no-cache, must-revalidate");
-header("Expires: 0");
+session_start();
+
+if (isset($_SESSION['user_id'])) {
+    header("Location: main.php");
+    exit();
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -45,14 +50,14 @@ header("Expires: 0");
         
 
         <?php
-
         if (isset($_GET['page'])) {
             $page = $_GET['page'];
-            
-            include '../elements/' . $page . '.php';
-            
-        } else {
+            include "../elements/{$page}.php";
+        }
+
+        else {
             header("Location: connection.php?page=login");
+            exit();
         }
         ?>
 

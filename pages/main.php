@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: connection.php?page=login");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -50,19 +59,15 @@
         <?php
 
 
-        if (isset($_GET['id'])) {
-            if (isset($_GET['page'])) {
-                $page = $_GET['page'];
-                include '../elements/' . $page . '.php';
-            } else {
-                header("Location: main.php?page=room&id=".$_GET['id']);
-            }
+         
+        if (isset($_GET['page'])) {
+            $page = $_GET['page'];
+            include '../elements/' . $page . '.php';
         }
-        else{
-            header("Location: connection.php");
-        }
-
-        
+        else {
+            header("Location: main.php?page=room");
+            exit();
+        }        
 
         ?>
 
