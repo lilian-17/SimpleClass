@@ -11,8 +11,6 @@ $nom = $_POST['nom'];
             'prenom' => $prenom,
             'nom' => $nom,
         ]);
-    
-
 
 echo '
 <h3>Entrez le pénom de chaque élève </h3>
@@ -33,6 +31,11 @@ echo '
             <td><input type="text" id="champ" name="nom" placeholder="Nom"></td>
         </tr>
 
+<!--
+Input pour entrer le nom et prenom des eleves
+En dessous juste un select pour afficher les eleves deja dans la base de donnee
+Et ajouter un bouton pour delete
+-->
         <!-- <input id="ajouter" type="button" value="Ajouter" onclick="checkchamp()"> -->
     <button id="ajouter" value="Ajouter" onclick="checkchamp()"type="submit" >Envoyer</button>
     </table>

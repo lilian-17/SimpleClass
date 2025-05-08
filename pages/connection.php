@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['user_id'])) {
-    header("Location: connection.php?page=login");
+if (isset($_SESSION['user_id'])) {
+    header("Location: main.php");
     exit();
 }
 ?>
@@ -38,37 +38,27 @@ if (!isset($_SESSION['user_id'])) {
 
         <div class="mainTitleContainer">
 
-            <h1 id="mainTitle">Commencer</h1>
-
-            <div onclick="updatePage('class');">
-                Classe
+            <div onclick="window.location.replace('connection.php?page=login');">
+                Connexion
             </div>
 
-
-            <div onclick="updatePage('students');">
-                Élève
-            </div>
-
-
-            <div onclick="updatePage('generate');">
-                Plan
+            <div onclick="window.location.replace('connection.php?page=register');">
+                Inscription
             </div>
 
         </div>
+        
 
         <?php
-
-
-         
         if (isset($_GET['page'])) {
             $page = $_GET['page'];
-            include '../elements/' . $page . '.php';
+            include "../elements/{$page}.php";
         }
-        else {
-            header("Location: main.php?page=room");
-            exit();
-        }        
 
+        else {
+            header("Location: connection.php?page=login");
+            exit();
+        }
         ?>
 
     </div>
@@ -76,14 +66,6 @@ if (!isset($_SESSION['user_id'])) {
     <?php
     include '../elements/footer.php';
     ?>
-
-    <script>
-        function updatePage(pageValue) {
-            const url = new URL(window.location.href);
-            url.searchParams.set('page', pageValue); // Change seulement "page"
-            window.location.replace(url.toString()); // Recharge avec la nouvelle URL
-        }
-    </script>
 
 </body>
 
