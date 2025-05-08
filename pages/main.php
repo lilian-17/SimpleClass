@@ -44,14 +44,16 @@ if (!isset($_SESSION['user_id'])) {
                 Classe
             </div>
 
-
             <div onclick="updatePage('students');">
-                Élève
+                Élèves
             </div>
 
+            <div onclick="updatePage('room');">
+                Salle
+            </div>
 
             <div onclick="updatePage('generate');">
-                Plan
+                Génération
             </div>
 
         </div>

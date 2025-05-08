@@ -30,9 +30,6 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 
 <body>
-    <?php
-    include '../elements/connexion.php';
-    ?>
 
     <?php
     include '../elements/nav.php';
@@ -68,11 +65,6 @@ if (!isset($_SESSION['user_id'])) {
     <?php
     include '../elements/footer.php';
     ?>
-<!-- teste linux -->
- <p> gros caca qui pue </p>
- <div>
-    transliterator_get_error_message
-</div>
 </body>
 
 </html>

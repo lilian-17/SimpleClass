@@ -153,8 +153,71 @@ function liste() {
 
 }
 
+
+
+function plan() {
+
+  console.log('Plan')
+
+  document.getElementById('classe').style.display = "none";
+  document.getElementById('eleve').style.display = "none";
+  document.getElementById('plan').style.display = "block";
+}
+
+function updatetableau() {
+
+  let classe = document.getElementById('classe');
+
+  let existingTable = document.querySelector("table");
+    if (existingTable) {
+        existingTable.remove();
+    }
+  
+  var tbl = document.createElement('table');
+
+  var nmb_colonne_prenom = parseInt(document.getElementById('tableau_x').value);
+  var nmb_colonne = parseInt(document.getElementById('tableau_y').value);
+
+  for (var i = 0; i < nmb_colonne_prenom; i++) {
+
+    var tr = tbl.insertRow();
+
+    for (var j = 0; j < nmb_colonne; j++) {
+
+      let td = tr.insertCell();
+      td.setAttribute("data-x", j);
+      td.setAttribute("data-y", i);
+      td.setAttribute("value",'')
+
+    }
+
+  }
+
+  classe.appendChild(tbl);
+
+  let td_ele = document.querySelectorAll("td");
+  td_ele.forEach(td => {
+    td.addEventListener('click', () => {
+      
+      console.log(td.getAttribute("value"))
+      if (td.getAttribute("value") == '#null'){
+        td.setAttribute("value",'')
+      }
+      else{
+        td.setAttribute("value",'#null')
+      }
+      
+      
+      
+
+    });
+  });
+
+}
+
+/*
 let compteur = 0; // Compteur pour différencier les élèves
-/*Creation de la liste d'eleves */
+/*Creation de la liste d'eleves 
 function createchamp() {
 
   var champ = document.getElementById("champ");
@@ -231,66 +294,4 @@ function createchamp() {
 
 //Mainteant il faudrait faire en sorte de les ajoutés a une liste peut être pour qu'on puisse les récupérer
 
-
-
-function plan() {
-
-  console.log('Plan')
-
-  document.getElementById('classe').style.display = "none";
-  document.getElementById('eleve').style.display = "none";
-  document.getElementById('plan').style.display = "block";
-}
-
-function updatetableau() {
-
-  let classe = document.getElementById('classe');
-
-  let existingTable = document.querySelector("table");
-    if (existingTable) {
-        existingTable.remove();
-    }
-  
-  var tbl = document.createElement('table');
-
-  var nmb_colonne_prenom = parseInt(document.getElementById('tableau_x').value);
-  var nmb_colonne = parseInt(document.getElementById('tableau_y').value);
-
-  for (var i = 0; i < nmb_colonne_prenom; i++) {
-
-    var tr = tbl.insertRow();
-
-    for (var j = 0; j < nmb_colonne; j++) {
-
-      let td = tr.insertCell();
-      td.setAttribute("data-x", j);
-      td.setAttribute("data-y", i);
-      td.setAttribute("value",'')
-
-    }
-
-  }
-
-  classe.appendChild(tbl);
-
-  let td_ele = document.querySelectorAll("td");
-  td_ele.forEach(td => {
-    td.addEventListener('click', () => {
-      
-      console.log(td.getAttribute("value"))
-      if (td.getAttribute("value") == '#null'){
-        td.setAttribute("value",'')
-      }
-      else{
-        td.setAttribute("value",'#null')
-      }
-      
-      
-      
-
-    });
-  });
-
-}
-
-
+*/
