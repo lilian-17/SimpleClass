@@ -12,8 +12,6 @@ $nom = $_POST['nom'];
             'nom' => $nom,
         ]);
 
-
-
 echo '
 <h3>Entrez le pénom de chaque élève </h3>
 <span id="placeCount"></span>
@@ -32,6 +30,7 @@ echo '
             <td><input type="text" id="champ" name="prenom" placeholder="Prénom"></td>
             <td><input type="text" id="champ" name="nom" placeholder="Nom"></td>
         </tr>
+
 <!--
 Input pour entrer le nom et prenom des eleves
 En dessous juste un select pour afficher les eleves deja dans la base de donnee

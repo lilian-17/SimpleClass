@@ -77,10 +77,10 @@ function updatetableau() {
   
   var tbl = document.createElement('table');
 
-  var nmb_ligne = parseInt(document.getElementById('tableau_x').value);
+  var nmb_colonne_prenom = parseInt(document.getElementById('tableau_x').value);
   var nmb_colonne = parseInt(document.getElementById('tableau_y').value);
 
-  for (var i = 0; i < nmb_ligne; i++) {
+  for (var i = 0; i < nmb_colonne_prenom; i++) {
 
     var tr = tbl.insertRow();
 
@@ -153,7 +153,7 @@ function liste() {
 
 }
 
-
+let compteur = 0; // Compteur pour différencier les élèves
 /*Creation de la liste d'eleves */
 function createchamp() {
 
@@ -167,16 +167,27 @@ function createchamp() {
   console.log(champ)
 
   var pointeur = document.getElementById("eleve");
-  var input = document.createElement("input");
+  var ligne = document.createElement("tr");
+  var colonne_prenom = document.createElement("td");
+  var colonne_nom = document.createElement("td");
+  var input_prenom = document.createElement("input");
+  var input_nom = document.createElement("input");
 
-  input.type = "text";
-  input.placeholder = "Prenom";
-  input.id = "champ";
+  input_prenom.type = "text";
+  input_prenom.placeholder = "Prenom";
+  input_prenom.id = "champ";
+  input_prenom.name = `eleves[${compteur}][prenom]`; // array de PHP
 
-  console.log(input);
-  pointeur.appendChild(input);
+  input_nom.type = "text";
+  input_nom.placeholder = "Nom";
+  input_nom.id = "champ";
+  input_nom.name = `eleves[${compteur}][nom]`;
 
-
+  ligne.appendChild(colonne_prenom);
+  ligne.appendChild(colonne_nom);
+  colonne_prenom.appendChild(input_prenom);
+  colonne_nom.appendChild(input_nom);
+  pointeur.appendChild(ligne);
 
 }
 
@@ -242,10 +253,10 @@ function updatetableau() {
   
   var tbl = document.createElement('table');
 
-  var nmb_ligne = parseInt(document.getElementById('tableau_x').value);
+  var nmb_colonne_prenom = parseInt(document.getElementById('tableau_x').value);
   var nmb_colonne = parseInt(document.getElementById('tableau_y').value);
 
-  for (var i = 0; i < nmb_ligne; i++) {
+  for (var i = 0; i < nmb_colonne_prenom; i++) {
 
     var tr = tbl.insertRow();
 
