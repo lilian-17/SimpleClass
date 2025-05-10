@@ -44,7 +44,6 @@ if (count($eleves) > 0) {
     echo "<p>Aucun élève enregistré.</p>";
 }
 
-
 // Formulaire pour ajouter un élève
 echo '<h2>Ajouter un élève</h2>
 <form method="post">
@@ -52,9 +51,5 @@ echo '<h2>Ajouter un élève</h2>
     <input type="text" name="nom" placeholder="Nom (facultatif)">
     <button type="submit">Ajouter</button>
 </form>';
-
-
-
-
 
 ?>
