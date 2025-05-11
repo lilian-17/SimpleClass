@@ -12,7 +12,7 @@ $class = intval($_GET['class']);
 $eleves = $conn->query("SELECT Id_eleve, prenom, nom FROM eleves WHERE Id_classe = $class ORDER BY Id_eleve DESC")->fetchAll(PDO::FETCH_ASSOC);
 
 // Récupérer le dernier plan de la classe
-$plan = $conn->query("SELECT * FROM plans WHERE Id_classe = $class ORDER BY Id_plan DESC LIMIT 1")->fetch(PDO::FETCH_ASSOC);
+$plan = $conn->query("SELECT * FROM plans WHERE Id_classe = $class ORDER BY Id_Plan DESC LIMIT 1")->fetch(PDO::FETCH_ASSOC);
 
 echo '
 <h3>Entrez les paramètres de génération</h3>
@@ -27,8 +27,8 @@ echo '
 if ($plan) {
     $longueur = $plan['longueur'];
     $largeur = $plan['largeur'];
-    echo '<h4>Associer les élèves aux places du plan "' . ($plan['nom']) . '"</h4>';
-    echo '<form method="post" action="associer.php?class=' . $class . '&plan=' . $plan['Id_Plan'] . '">';
+    echo '<h4>Associer les élèves aux places du plan "' . htmlspecialchars($plan['nom']) . '"</h4>';
+    echo '<form method="post" action="associer.php?class=' . $class . '&plan=' . intval($plan['Id_Plan']) . '">';
     echo '<table border="1">';
     for ($y = 0; $y < $largeur; $y++) {
         echo '<tr>';
@@ -37,7 +37,7 @@ if ($plan) {
             echo '<select name="case[' . $y . '][' . $x . ']">';
             echo '<option value="">--</option>';
             foreach ($eleves as $eleve) {
-                echo '<option value="' . $eleve['Id_eleve'] . '">' . ($eleve['prenom']) . ' ' . ($eleve['nom']) . '</option>';
+                echo '<option value="' . htmlspecialchars($eleve['Id_eleve']) . '">' . htmlspecialchars($eleve['prenom']) . ' ' . htmlspecialchars($eleve['nom']) . '</option>';
             }
             echo '</select>';
             echo '</td>';
@@ -47,13 +47,18 @@ if ($plan) {
     echo '</table>';
     echo '<input type="submit" value="Associer">';
     echo '</form>';
+
+    // Formulaire pour exporter les données
+    echo '<form method="post" action="export.php?class=' . $class . '&plan=' . intval($plan['Id_Plan']) . '">';
+    echo '<input type="submit" value="Exporter en CSV">';
+    echo '</form>';
 } else {
     echo "<p style='color:red;'>Aucun plan trouvé pour cette classe.</p>";
 }
 
 echo '<h4>Liste des élèves de la classe :</h4><ul>';
 foreach ($eleves as $eleve) {
-    echo '<li>' . ($eleve['prenom']) . ' ' . ($eleve['nom']) . '</li>';
+    echo '<li>' . htmlspecialchars($eleve['prenom']) . ' ' . htmlspecialchars($eleve['nom']) . '</li>';
 }
 echo '</ul></div>';
 
