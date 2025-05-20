@@ -81,6 +81,9 @@ $count = 0;
                 <td><?php echo $classe['nombre_eleves']; ?></td>
 
                 <td>
+
+                    <a href="classname.php?id=<?php echo $classe['Id_classe']; ?> " id='modifier'>Changer le nom</a>
+
                     <a href="main.php?page=students&class=<?php echo $classe['Id_classe']; ?>">Selectionner</a>
 
                     <a href="modifier.php?id=<?php echo $classe['Id_classe']; ?> " id='modifier'>Supprimer</a>

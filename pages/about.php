@@ -6,7 +6,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 ?>
-?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -51,7 +51,7 @@ if (!isset($_SESSION['user_id'])) {
 
 
         <div class="profile">
-            <img alt="Lilian Martineau" class="pp" src="../img/pp_lilian.png">
+            <img alt="Lilian Martineau" class="pp" src="../img/pp_lilian.jpg">
             <h4>Lilian Martineau</h4>
         </div>
 

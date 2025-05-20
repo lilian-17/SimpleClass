@@ -87,6 +87,39 @@ if (!isset($_SESSION['user_id'])) {
         }
     </script>
 
+    <script>
+function exportTableToCSV(filename) {
+    const table = document.getElementById("table-places");
+    if (!table) {
+        alert("Aucune table à exporter.");
+        return;
+    }
+
+    let csv = "";
+    for (let row of table.rows) {
+        let rowData = [];
+        for (let cell of row.cells) {
+            const select = cell.querySelector("select");
+            if (select) {
+                let text = select.options[select.selectedIndex]?.text || "";
+                rowData.push('"' + text.replace(/"/g, '""') + '"');
+            } else {
+                rowData.push("");
+            }
+        }
+        csv += rowData.join(",") + "\n";
+    }
+
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+</script>
+
 </body>
 
 </html>

@@ -32,6 +32,18 @@ if(isset($_POST['prenom']) && isset($_GET['class'])){
 echo "<h2>Liste des élèves</h2>";
 //Récupération des éleves
 $class = $_GET['class'];
+
+// Récupération du nombre d'élèves dans la classe avec une requête SQL agrégée
+try {
+    $countStmt = $conn->prepare("SELECT COUNT(*) AS total FROM eleves WHERE Id_classe = :classe");
+    $countStmt->execute(['classe' => $class]);
+    $count = $countStmt->fetch(PDO::FETCH_ASSOC)['total'];
+
+    echo "<p>Nombre d'élèves dans la classe : <strong>" . $count . "</strong></p>";
+} catch (Exception $e) {
+    echo "<p style='color:red;'>Erreur lors du comptage des élèves : " . $e->getMessage() . "</p>";
+}
+
 $eleves = $conn->query("SELECT prenom, nom FROM eleves WHERE Id_classe = '$class' ORDER BY Id_eleve DESC")->fetchAll(PDO::FETCH_ASSOC); //Récupérer sous forme d'un tableau associatif, chaque ligne du résultat est un tableau avec les noms des colonnes (prenom et nom) comme clé
 
 if (count($eleves) > 0) {
@@ -44,6 +56,7 @@ if (count($eleves) > 0) {
     echo "<p>Aucun élève enregistré.</p>";
 }
 
+
 // Formulaire pour ajouter un élève
 echo '<h2>Ajouter un élève</h2>
 <form method="post">
@@ -51,5 +64,9 @@ echo '<h2>Ajouter un élève</h2>
     <input type="text" name="nom" placeholder="Nom (facultatif)">
     <button type="submit">Ajouter</button>
 </form>';
+
+
+
+
 
 ?>
